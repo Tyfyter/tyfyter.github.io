@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+	<script src="searchscript.js" defer></script>
+	<style>
+		.tooltipped {
+		  position: relative;
+		  display: inline-block;
+		  border-bottom: 1px dotted black;
+		}
+
+		.tooltipped .tooltiptext {
+		  visibility: hidden;
+		  width: 120px;
+		  background-color: black;
+		  color: #fff;
+		  text-align: center;
+		  border-radius: 6px;
+		  padding: 5px 0;
+
+		  /* Position the tooltip */
+		  position: absolute;
+		  z-index: 1;
+		  width: 120px;
+		  top: 100%;
+		  left: 50%;
+		  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+		}
+
+		.tooltipped:hover .tooltiptext {
+		  visibility: visible;
+		}
+		
+		.searchSymbol {
+			height: 2em;
+			vertical-align: middle;
+		}
+		#content {
+			transform: translate(-50%,-50%);
+			position: absolute;
+			left: 50%;
+			top: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div id="content"></div>
+</body>

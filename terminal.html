@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<script>
+		var escapeEl = document.createElement('textarea');
+		window.escapeHTML = function(html) {
+			escapeEl.textContent = html;
+			return escapeEl.innerHTML;
+		};
+
+		window.unescapeHTML = function(html) {
+			escapeEl.innerHTML = html;
+			return escapeEl.textContent;
+		};
+		window.addEventListener("load", function () {
+			document.getElementById('terminal').addEventListener("paste", function(e) {
+				e.preventDefault();
+				var text = window.escapeHTML(e.clipboardData.getData("text/plain"));
+				document.execCommand("insertHTML", false, text.replaceAll('\n','<br>'));
+			});
+		});
+		</script>
+        <style>
+            #terminal {
+                font-size: x-large;
+                display: inline-block;
+                width: 100%;
+                min-height: 1em;
+                border: 0.1em solid grey;
+            }
+            #submit {
+                font-size: xx-large;
+                border: 0.1em solid grey;
+            }
+        </style>
+    </head>
+    <body>
+        <span id="terminal" contenteditable></span>
+        <button id="submit" type="submit" onclick="try{eval(document.getElementById('terminal').innerText)}catch(e){window.alert(e);console.error(e);}">evaluate</button>
+    </body>
+</html>
