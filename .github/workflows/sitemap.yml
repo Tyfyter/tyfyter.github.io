@@ -8,7 +8,7 @@ jobs:
   sitemap_job:
     runs-on: ubuntu-latest
     name: Generate a sitemap
-    if: github.event.pusher.name != 'GitHub Actions'
+    if: github.event.pusher.name != 'github-actions'
 
     steps:
     - name: Checkout the repo
@@ -21,17 +21,9 @@ jobs:
       uses: cicirello/generate-sitemap@v1.8.3
       with:
         base-url-path: https://tyfyter.github.io
-
-    - name: Commit sitemap
-      # You may pin to the exact commit or the version.
-      # uses: zwaldowski/git-commit-action@66730766679672410dc04830ae6389f4376c8c94
-      uses: zwaldowski/git-commit-action@v1
-      with:
-        commit_message: sitemap update
-        author_name: GitHub Actions
         
     - name: test 1
-      if: github.event.pusher.name != 'GitHub Actions'
+      if: github.event.pusher.name != 'github-actions'
       run: echo Hello, world!
         
     - name: test 2
@@ -41,8 +33,10 @@ jobs:
     - name: control
       run: echo Hello, world!
       
-    - name: action-push
-      if: github.event.pusher.name != 'GitHub Actions'
-      # You may pin to the exact commit or the version.
-      # uses: ludeeus/action-push@0b7c1175655379c008f42bbaf524caa79cf89ec1
-      uses: ludeeus/action-push@0.0.1
+    - name: Push sitemap
+      if: github.event.pusher.name != 'github-actions'
+      uses: reloc8/action-push-local-changes@1.0.0
+      with:
+        commit-username: 'github-actions'
+        commit-message: sitemap
+        
