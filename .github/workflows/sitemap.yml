@@ -40,8 +40,9 @@ jobs:
 
     - name: control
       run: echo Hello, world!
-    #- name: action-push
-      #if: github.event.pusher.name != 'GitHub Actions'
+      
+    - name: action-push
+      if: github.event.pusher.name != 'GitHub Actions'
       # You may pin to the exact commit or the version.
       # uses: ludeeus/action-push@0b7c1175655379c008f42bbaf524caa79cf89ec1
-      #uses: ludeeus/action-push@0.0.1
+      uses: ludeeus/action-push@0.0.1
