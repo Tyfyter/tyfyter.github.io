@@ -6,6 +6,6 @@ The source code for my terraria mods is [here](https://github.com/Tyfyter) in ca
 
 [here](https://forms.gle/1zA8JDKQNZMJoRFy8)'s a form for feedback and such;
 
-And [here](tyfyter.github.io/search) is a helpful search page for song lyrics and tML's ExampleMod.
+And [here](https://tyfyter.github.io/search) is a helpful search page for song lyrics and tML's ExampleMod.
 
 That's about it.
