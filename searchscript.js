@@ -56,8 +56,7 @@ function setContent(v){
     '</div>'
 }
 var searchData = window.location.search.substring(1).split('|');
-var searchName = searchData.length > 0 && searchData[0];
-searchData.shift();
+var searchName = searchData.shift();
 if(searchName){
     console.log("search mode: "+searchName);
     setContent(searchName);
