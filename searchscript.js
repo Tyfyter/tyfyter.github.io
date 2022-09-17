@@ -33,7 +33,6 @@ var searchModes = [
 ];
 function setContent(v){
     var content = document.getElementById("content");
-    console.log("content: "+content);
     for(var i = 0; i < searchModes.length; i++){
         if(searchModes[i].name == v || (searchModes[i].aliases && searchModes[i].aliases.includes(v))){
             searchMode = searchModes[i];
@@ -56,10 +55,21 @@ function setContent(v){
     '<span class="tooltiptext">search</span>'+
     '</div>'
 }
-var searchString = window.location.search.substring(1);
-if(searchString){
-    console.log("search mode: "+searchString);
-    setContent(searchString);
+var searchData = window.location.search.substring(1).split('|');
+var searchName = searchData.length > 0 && searchData[0];
+searchData.shift();
+if(searchName){
+    console.log("search mode: "+searchName);
+    setContent(searchName);
+    if(searchData){
+        console.log(`filling in: ${searchData.length}/${searchMode.boxes.length} search boxes`);
+        for (let i = 0; i < searchData.length; i++) {
+            document.getElementById(searchMode.boxes[i]).value = searchData[i];
+            if(i == searchMode.boxes.length - 1){
+                search();
+            }
+        }
+    }
 } else {
     var content = document.getElementById("content");
     content.innerHTML = "";
