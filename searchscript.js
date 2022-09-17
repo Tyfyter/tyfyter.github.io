@@ -54,8 +54,12 @@ function setContent(v){
     '</svg>'+
     '<span class="tooltiptext">search</span>'+
     '</div>'
+}function decodeEntities(input) {
+    var textarea = document.createElement("textarea");
+    textarea.innerHTML = input;
+    return textarea.value;
 }
-var searchData = window.location.search.substring(1).split('|');
+var searchData = decodeEntities(window.location.search).substring(1).split('|');
 var searchName = searchData.shift();
 if(searchName){
     console.log("search mode: "+searchName);
