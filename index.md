@@ -1,6 +1,7 @@
 ## Welcome to my poorly set up GitHub Page
 <script defer=true>
 if (window.location.search) {
+  console.log(document.children[0].innerHTML);
   let linkSource = document.getElementById("linksource");
   let search = window.location.search.replace("?", "");
   linkSource.hidden = false;
