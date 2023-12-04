@@ -1,5 +1,5 @@
 ## Welcome to my poorly set up GitHub Page
-<script defer>
+<script defer=true>
 if (window.location.search) {
   let linkSource = document.getElementById("linksource");
   let search = window.location.search.replace("?", "");
@@ -7,7 +7,7 @@ if (window.location.search) {
   linkSource.innerHTML = linkSource.innerHTML.replaceAll("{0}", search);
 }
 </script>
-<div id="linksource" hidden="true"><a href="https://github.com/Tyfyter/{0}">{0}'s source code</a><a href="https://github.com/Tyfyter/{0}/issues">Report an issue</a></div>
+<div id="linksource" hidden="true"><a href="https://github.com/Tyfyter/{0}">{0}'s source code</a> <a href="https://github.com/Tyfyter/{0}/issues">Report an issue</a></div>
 
 There's a [Discord server](https://discord.gg/FyRUyQG).
 
