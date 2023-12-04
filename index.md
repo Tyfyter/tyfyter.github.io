@@ -1,12 +1,10 @@
 ## Welcome to my poorly set up GitHub Page
 <script defer>
-if () {
+if (window.location.search) {
   let linkSource = document.getElementById("linksource");
-  if(window.location.search){
-    let search = window.location.search.replace("?", "");
-    linkSource.hidden = false;
-    linkSource.innerHTML = linkSource.innerHTML.replaceAll("{0}", search);
-  }
+  let search = window.location.search.replace("?", "");
+  linkSource.hidden = false;
+  linkSource.innerHTML = linkSource.innerHTML.replaceAll("{0}", search);
 }
 </script>
 <div id="linksource" hidden="true"><a href="https://github.com/Tyfyter/{0}">{0}'s source code</a><a href="https://github.com/Tyfyter/{0}/issues">Report an issue</a></div>
