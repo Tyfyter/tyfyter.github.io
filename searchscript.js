@@ -29,6 +29,12 @@ var searchModes = [
         aliases:['em'],
         boxes:['search'],
         searchFormatter:(params)=>"https://github.com/search?q=repo%3AtModLoader%2FtModLoader+path%3AExampleMod+"+params.search
+    },
+    {
+        name:'originswiki',
+        aliases:['ow', 'origins'],
+        boxes:['search'],
+        searchFormatter:(params)=>"https://tyfyter.github.io/OriginsWiki/searchPage?"+params.search.replace(' ', '_')
     }
 ];
 function setContent(v){
