@@ -1,4 +1,12 @@
 ## Welcome to my poorly set up GitHub Page
+<style>
+#linksource > a {
+  border: black 1px solid;
+  border-radius: 5px;
+  background: #0001;
+  padding: 2px;
+}
+</style>
 <div id="linksource" hidden="true"><a href="https://github.com/Tyfyter/{0}">{0}'s source code</a> <a href="https://github.com/Tyfyter/{0}/issues">Report an issue</a></div>
 
 There's a [Discord server](https://discord.gg/FyRUyQG).
