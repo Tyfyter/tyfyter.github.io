@@ -3,6 +3,18 @@
 <meta charset="UTF-8">
 <head>
 	<link rel="icon" href="favicon.ico" type="image/icon type">
+	<script>
+		let skipEverything = false;
+		let searchQuery = decodeURI(window.location.search).substring(1);
+		if (searchQuery.startsWith('!')) {
+			if (searchQuery.startsWith('!~')) {
+				searchQuery = searchQuery.substring(2);
+			} else {
+				window.open(`https://duckduckgo.com/?q=${window.location.search.substring(2)}`, "_self");
+				skipEverything = true;
+			}
+		}
+	</script>
 	<script src="searchscript.js" defer></script>
 	<style>
 		.tooltipped {
