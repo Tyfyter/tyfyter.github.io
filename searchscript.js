@@ -61,25 +61,37 @@ function setContent(v){
     '<span class="tooltiptext">search</span>'+
     '</div>'
 }
-var searchData = decodeURI(window.location.search).substring(1).split('|');
-var searchName = searchData.shift();
-if(searchName){
-    console.log("search mode: "+searchName);
-    setContent(searchName);
-    if(searchData){
-        console.log(`filling in: ${searchData.length}/${searchMode.boxes.length} search boxes`);
-        for (let i = 0; i < searchData.length; i++) {
-            document.getElementById(searchMode.boxes[i]).value = searchData[i];
-            if(i == searchMode.boxes.length - 1){
-                search();
+let searchQuery = decodeURI(window.location.search).substring(1);
+let actuallyRun = true;
+if (searchQuery.startsWith('!')) {
+    if (searchQuery.startsWith('!~')) {
+        searchQuery = searchQuery.substring(2);
+    } else {
+        window.open(`https://duckduckgo.com/?q=${window.location.search.substring(2)}`, "_self");
+        actuallyRun = false;
+    }
+}
+if (actuallyRun) {
+    var searchData = searchQuery.split('|');
+    var searchName = searchData.shift();
+    if(searchName){
+        console.log("search mode: "+searchName);
+        setContent(searchName);
+        if(searchData){
+            console.log(`filling in: ${searchData.length}/${searchMode.boxes.length} search boxes`);
+            for (let i = 0; i < searchData.length; i++) {
+                document.getElementById(searchMode.boxes[i]).value = searchData[i];
+                if(i == searchMode.boxes.length - 1){
+                    search();
+                }
             }
         }
+    } else {
+        var content = document.getElementById("content");
+        content.innerHTML = "";
+        for(var i = 0; i < searchModes.length; i++){
+            content.innerHTML += '<a href="?'+searchModes[i].name+'">'+searchModes[i].name+'</a><br>';
+        }
+        content.id = "";
     }
-} else {
-    var content = document.getElementById("content");
-    content.innerHTML = "";
-    for(var i = 0; i < searchModes.length; i++){
-        content.innerHTML += '<a href="?'+searchModes[i].name+'">'+searchModes[i].name+'</a><br>';
-    }
-    content.id = "";
 }
