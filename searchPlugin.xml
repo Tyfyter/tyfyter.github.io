@@ -1,0 +1,11 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Custom Search</ShortName>
+  <Description>Search however you want</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://tyfyter.github.io/favicon.ico</Image>
+  <Url type="text/html" template="https://tyfyter.github.io/search?!{searchTerms}"/>
+  <Url type="application/x-suggestions+json" template="http://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}"/>
+  <!--Url type="application/x-suggestions+json" template="https://duckduckgo.com/ac/?q={searchTerms}&amp;t=searchdirector"/-->
+  <moz:SearchForm>[https://example.com/search]</moz:SearchForm>
+</OpenSearchDescription>
