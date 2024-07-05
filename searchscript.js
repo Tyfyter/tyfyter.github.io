@@ -48,7 +48,7 @@ var searchModes = [
         name:'lyrics',
         aliases:['lyric'],
         boxes:['artist', 'lyric'],
-        searchFormatter:(params)=>"https://www.google.com/search?q=\""+params.lyric+"\""+" site:www.azlyrics.com/lyrics/"+params.artist.replace(/ /g,"")+"/"
+        searchFormatter:(params)=>"https://www.google.com/search?q=\""+params.lyric+"\""+" site:www.azlyrics.com/lyrics/"+params.artist.replace(' ', '')+"/"
     },
     {
         name:'examplemod',
