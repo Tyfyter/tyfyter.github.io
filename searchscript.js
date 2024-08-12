@@ -11,7 +11,7 @@ function search(){
             params[searchMode.boxes[i]] = document.getElementById(searchMode.boxes[i]).value;
         }
         url = searchMode.searchFormatter(params);
-        window.open(url, "_self");
+        window.location.replace(url);
     }catch(e){
         console.error(e);
         window.open("https://stackoverflow.com/search?q=[js]+"+e.message,'_blank');
