@@ -11,7 +11,7 @@
 			if (searchQuery.startsWith('!~')) {
 				searchQuery = searchQuery.substring(2);
 			} else {
-				window.open(`https://duckduckgo.com/?q=${window.location.search.substring(2)}`, "_self");
+				window.location.replace(`https://duckduckgo.com/?q=${window.location.search.substring(2)}`);
 				skipEverything = true;
 			}
 		}
