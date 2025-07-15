@@ -11,7 +11,19 @@
 			if (searchQuery.startsWith('!~')) {
 				searchQuery = searchQuery.substring(2);
 			} else {
-				window.location.replace(`https://duckduckgo.com/?q=${window.location.search.substring(2)}`);
+				if (!String.prototype.format) {
+					String.prototype.format = function() {
+						var args = arguments;
+						return this.replace(/{(\d+)}/g, function(match, number) { 
+						return typeof args[number] != 'undefined'
+							? args[number]
+							: match
+						;
+						});
+					};
+				}
+				let engine = localStorage.getItem('customDefaultEngine') || "https://duckduckgo.com/?q={0}";
+				window.location.replace(engine.format('window.location.search.substring(2)'));
 				skipEverything = true;
 			}
 		}
